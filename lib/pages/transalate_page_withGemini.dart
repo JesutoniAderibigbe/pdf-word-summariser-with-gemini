@@ -6,10 +6,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
+import 'dart:io' show Platform;
+
+
 
 //build a translate page that uses gemini api
-  const apiKey = 'AIzaSyAdJpXPVujcabfqRpZlN0f3wwLZxH0CgUQ';
-
+  
 class TranslatePage extends StatefulWidget {
   const TranslatePage({super.key});
 
@@ -19,6 +21,7 @@ class TranslatePage extends StatefulWidget {
 
 class _TranslatePageState extends State<TranslatePage> {
   final TextEditingController _textController = TextEditingController();
+  final apiKey = Platform.environment['GEMINI_API_KEY']!;
   String _summary = '';
   bool _isLoading = false;
 
